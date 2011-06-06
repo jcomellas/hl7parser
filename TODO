@@ -1,0 +1,13 @@
+HL7 parser to-do list:
+
+- Add accessor macros to all the members of structures that need to be
+  accessed from other modules (HL7_Lexer, HL7_Buffer, HL7_Node, etc.)
+
+- Inform the callback handlers of the element's location (e.g. MSH.3.1)
+  when invoking them.
+
+- Better error reporting, including specific error codes for the possible
+  error conditions and the specific location where the error occurred.
+
+- Add support for incremental reading and writing of HL7 messages, both for
+  the message and callback parsers.

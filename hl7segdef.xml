@@ -1,0 +1,281 @@
+<hl7segdef>
+
+    <!-- AUT: Authorization information -->
+    <segment id="AUT" comment="Authorization information">
+        <component      name="plan_id"                                  index="0.0"     length="10"/>
+        <component      name="plan_name"                                index="0.1"     length="20"/>
+        <component      name="company_id"                               index="1.0"     length="6"/>
+        <component      name="company_name"                             index="1.1"     length="30"/>
+        <component      name="company_id_coding_system"                 index="1.2"     length="20"/>
+        <field          name="start_date"                               index="3"       length="8" data_type="date"/>
+        <field          name="end_date"                                 index="4"       length="8" data_type="date"/>
+        <component      name="authorization_id"                         index="5.0"     length="20"/>
+        <field          name="requested_treatments"                     index="7"       length="2" data_type="integer"/>
+        <field          name="authorized_treatments"                    index="8"       length="2" data_type="integer"/>
+    </segment>
+
+    <!-- DG1: Diagnosis information -->
+    <segment id="DG1" comment="Diagnosis information">
+        <field          name="set_id"                                   index="0"       length="4" data_type="integer"/>
+        <component      name="diagnosis_id"                             index="2.0"     length="20"/>
+        <component      name="name"                                     index="2.1"     length="32"/>
+        <component      name="coding_system"                            index="2.2"     length="10"/>
+        <field          name="diagnosis_type"                           index="5"       length="2"/>
+    </segment>
+
+    <!-- DSC: Continuation pointer -->
+    <segment id="DSC" comment="Continuation pointer">
+        <field          name="continuation_pointer"                     index="0"       length="15"/>
+    </segment>
+
+    <!-- DSP: Display data -->
+    <segment id="DSP" comment="Display data">
+        <field          name="set_id"                                   index="0"       length="4" data_type="integer"/>
+        <field          name="display_level"                            index="1"       length="4"/>
+        <field          name="data_line"                                index="2"       length="40"/>
+        <field          name="break_point"                              index="3"       length="2"/>
+        <field          name="result_id"                                index="4"       length="20"/>
+    </segment>
+
+    <!-- ERR: Error information -->
+    <segment id="ERR" comment="Error information">
+        <component      name="segment_id"                               index="0.0"     length="3"/>
+        <component      name="sequence"                                 index="0.1"     length="3" data_type="integer"/>
+        <component      name="field_pos"                                index="0.2"     length="3" data_type="integer"/>
+        <subcomponent   name="error_code"                               index="0.3.0"   length="9"/>
+        <subcomponent   name="error_text"                               index="0.3.1"   length="61"/>
+    </segment>
+
+    <!-- EVN: Event type -->
+    <segment id="EVN" comment="Event type">
+        <field          name="recorded_date"                            index="1"       length="14" data_type="date" />
+        <field          name="planned_event_date"                       index="2"       length="14" data_type="date" />
+    </segment>
+
+    <!-- IN1: Insurance -->
+    <segment id="IN1" comment="Insurance">
+        <field          name="set_id"                                   index="0"       length="4" data_type="integer"/>
+        <component      name="plan_id"                                  index="1.0"     length="20"/>
+        <component      name="plan_name"                                index="1.1"     length="30"/>
+        <component      name="company_id"                               index="2.0"     length="6"/>
+        <subcomponent   name="company_assigning_authority_id"           index="2.3.0"   length="10"/>
+        <subcomponent   name="company_id_type"                          index="2.3.4"   length="10"/>
+        <component      name="authorization_number"                     index="13.0"    length="20"/>
+        <component      name="auhtorization_date"                       index="13.1"    length="8" data_type="date" />
+    </segment>
+
+    <!-- MSA: Message acknowledgment -->
+    <segment id="MSA" comment="Message acknowledgment">
+        <field          name="ack_code"                                 index="0"       length="2"/>
+        <field          name="message_control_id"                       index="1"       length="20"/>
+        <component      name="error_code"                               index="5.0"     length="10"/>
+        <component      name="error_text"                               index="5.1"     length="40"/>
+    </segment>
+
+    <!-- MSH: Message header -->
+    <segment id="MSH" comment="Message header">
+        <field          name="field_separator"                          index="0"       length="1"/>
+        <field          name="encoding_characters"                      index="1"       length="4"/>
+        <component      name="sending_application_id"                   index="2.0"     length="12"/>
+        <component      name="sending_facility_id"                      index="3.0"     length="12"/>
+        <component      name="sending_facility_universal_id"            index="3.1"     length="20"/>
+        <component      name="sending_facility_universal_id_type"       index="3.2"     length="20"/>
+        <component      name="receiving_application_id"                 index="4.0"     length="12"/>
+        <component      name="receiving_facility_id"                    index="5.0"     length="12"/>
+        <component      name="receiving_facility_universal_id"          index="5.1"     length="20"/>
+        <component      name="receiving_facility_universal_id_type"     index="5.2"     length="20"/>
+        <field          name="message_date"                             index="6"       length="14" data_type="date" />
+        <component      name="message_type"                             index="8.0"     length="3"/>
+        <component      name="trigger_event"                            index="8.1"     length="3"/>
+        <component      name="message_structure"                        index="8.2"     length="7"/>
+        <field          name="message_control_id"                       index="9"       length="20"/>
+        <field          name="processing_id"                            index="10"      length="3"/>
+        <field          name="version"                                  index="11"      length="8"/>
+        <field          name="accept_ack_type"                          index="14"      length="2"/>
+        <field          name="application_ack_type"                     index="15"      length="2"/>
+        <field          name="country_code"                             index="16"      length="3"/>
+    </segment>
+
+    <!-- NTE: Notes and comments -->
+    <segment id="NTE" comment="Notes and comments">
+        <field          name="set_id"                                   index="0"       length="4" data_type="integer"/>
+        <field          name="comment"                                  index="2"       length="512"/>
+    </segment>
+
+    <!-- PID: Patient information -->
+    <segment id="PID" comment="Patient information">
+        <field          name="set_id"                                   index="0"       length="4" data_type="integer"/>
+        <!-- Repetition 0 -->
+        <component      name="patient_id"                               index="2.0.0"   length="20"/>
+        <!-- Repetition 1 -->
+        <component      name="patient_document_id"                      index="2.0.0"   length="20"/>
+
+        <subcomponent   name="assigning_authority_id"                   index="2.3.0"   length="6"/>
+        <subcomponent   name="assigning_authority_universal_id"         index="2.3.1"   length="6"/>
+        <subcomponent   name="assigning_authority_universal_id_type"    index="2.3.2"   length="10"/>
+        <component      name="id_type"                                  index="2.4"     length="2"/>
+        <component      name="last_name"                                index="4.0"     length="25"/>
+        <component      name="first_name"                               index="4.1"     length="25"/>
+    </segment>
+
+    <!-- PR1: Procedure information -->
+    <segment id="PR1" comment="Procedure information">
+        <field          name="set_id"                                   index="0"       length="4" data_type="integer"/>
+        <component      name="procedure_id"                             index="2.0"     length="20"/>
+        <component      name="procedure_name"                           index="2.1"     length="30"/>
+        <component      name="coding_system"                            index="2.2"     length="4"/>
+        <field          name="date"                                     index="4"       length="14" data_type="date" />
+    </segment>
+
+    <!-- PRD: Provider data -->
+    <segment id="PRD" comment="Provider data">
+        <!-- Repetition 0 -->
+        <component      name="role_id"                                  index="0.0.0"     length="5"/>
+        <component      name="role_name"                                index="0.0.1"     length="30"/>
+        <component      name="role_coding_system"                       index="0.0.2"     length="7"/>
+        <!-- Repetition 1 -->
+        <component      name="specialty_id"                             index="0.1.0"     length="5"/>
+        <component      name="specialty_name"                           index="0.1.1"     length="30"/>
+        <component      name="specialty_coding_system"                  index="0.1.2"     length="7"/>
+
+        <component      name="last_name"                                index="1.0"     length="40"/>
+        <component      name="first_name"                               index="1.1"     length="30"/>
+        <component      name="street"                                   index="2.0"     length="20"/>
+        <component      name="other_designation"                        index="2.1"     length="20"/>
+        <component      name="city"                                     index="2.2"     length="30"/>
+        <component      name="state"                                    index="2.3"     length="1"/>
+        <component      name="postal_code"                              index="2.4"     length="10"/>
+        <component      name="country_code"                             index="2.5"     length="3"/>
+        <component      name="address_type"                             index="2.6"     length="1"/>
+        <component      name="provider_id"                              index="6.0"     length="15"/>
+        <!--
+        <component      name="provider_id_type"                         index="6.1"   length="4"/>
+        -->
+        <subcomponent   name="provider_id_type"                         index="6.1.0"   length="2"/>
+        <subcomponent   name="provider_id_type_medical"                 index="6.1.1"   length="1"/>
+        <subcomponent   name="provider_id_type_province"                index="6.1.2"   length="1"/>
+
+        <component      name="provider_id_alternate_qualifier"          index="6.2"     length="8"/>
+    </segment>
+
+    <!-- PV1: Patient visit -->
+    <segment id="PV1" comment="Patient visit">
+        <field          name="set_id"                                   index="0"       length="4"/>
+        <field          name="patient_class"                            index="1"       length="1"/>
+        <!--
+        <field          name="assigned_patient_location"                index="2"       length="34"/>
+        -->
+        <component      name="patient_point_of_care"                    index="2.0"     length="10"/>
+        <component      name="patient_location_facility"                index="2.3"     length="21"/>
+        <field          name="admission_type"                           index="3"       length="34"/>
+        <!--
+        <field          name="attending_doctor"                         index="6"       length="99"/>
+        -->
+        <component      name="attending_doctor_id"                      index="6.0"     length="20"/>
+        <component      name="attending_doctor_last_name"               index="6.1"     length="25"/>
+        <component      name="attending_doctor_first_name"              index="6.2"     length="25"/>
+        <component      name="attending_doctor_assigning_authority"     index="6.8"     length="21"/>
+        <!--
+        <field          name="referring_doctor"                         index="7"       length="99"/>
+        -->
+        <component      name="referring_doctor_id"                      index="7.0"     length="20"/>
+        <component      name="referring_doctor_last_name"               index="7.1"     length="25"/>
+        <component      name="referring_doctor_first_name"              index="7.2"     length="25"/>
+        <component      name="referring_doctor_assigning_authority"     index="7.8"     length="21"/>
+
+        <field          name="hospital_service"                         index="9"       length="99"/>
+        <field          name="readmission_indicator"                    index="12"      length="2"/>
+        <field          name="discharge_diposition"                     index="35"      length="3"/>
+        <field          name="admit_date"                               index="43"      length="12" data_type="date"/>
+        <field          name="discharge_date"                           index="44"      length="12" data_type="date"/>
+        <field          name="visit_indicator"                          index="50"      length="1"/>
+    </segment>
+
+    <!-- PV2: Patient visit - additional information -->
+    <segment id="PV2" comment="Patient visit - additional information">
+        <!--
+        <field          name="transfer_reason"                          index="3"       length="20"/>
+        -->
+        <component      name="transfer_reason_id"                       index="3.0"     length="20"/>
+    </segment>
+
+    <!-- QAK: Query acknowledgment -->
+    <segment id="QAK" comment="Query acknowledgment">
+        <field          name="query_tag"                                index="0"       length="32"/>
+        <field          name="query_response_status"                    index="1"       length="4"/>
+        <component      name="query_id"                                 index="2.0"     length="14"/>
+        <component      name="query_name"                               index="2.1"     length="30"/>
+    </segment>
+
+    <!-- QPD: Query parameter definition -->
+    <segment id="QPD_Q15" comment="Query parameter definition -- procedure totals query">
+        <!--
+        <field          name="message_query_name"                       index="0"       length="50"/>
+        -->
+        <component      name="query_id"                                 index="0.0"     length="20"/>
+        <component      name="query_name"                               index="0.1"     length="30"/>
+        <field          name="query_tag"                                index="1"       length="32"/>
+        <component      name="provider_id"                              index="2.0"     length="15"/>
+        <component      name="provider_id_type"                         index="2.1"     length="4"/>
+        <field          name="start_date"                               index="3"       length="12" data_type="date"/>
+        <field          name="end_date"                                 index="4"       length="12" data_type="date"/>
+        <component      name="procedure_id"                             index="5.0"     length="30"/>
+        <component      name="procedure_coding_system"                  index="5.1"     length="8"/>
+        <component      name="authorizer_id"                            index="6.0"     length="6"/>
+    </segment>
+
+    <!-- RCP: Response control parameter -->
+    <segment id="RCP" comment="Response control parameter">
+        <field          name="query_priority"                           index="0"       length="1"/>
+        <component      name="response_limit"                           index="1.0"     length="10" data_type="integer"/>
+        <subcomponent   name="response_unit"                            index="1.1.0"   length="2"/>
+        <component      name="response_modality_id"                     index="2.0"     length="10"/>
+        <field          name="execution_date"                           index="3"       length="12" data_type="date"/>
+        <field          name="sort_by"                                  index="5"       length="512"/>
+    </segment>
+
+    <!-- RF1: Referral information -->
+    <segment id="RF1" comment="Referral information">
+        <!--
+        <field          name="referral_status"                          index="0"       length="21"/>
+        -->
+        <component      name="referral_status_id"                       index="0.0"     length="5"/>
+        <component      name="referral_status_description"              index="0.1"     length="15"/>
+        <!--
+        <field          name="referral_type"                            index="2"       length="21"/>
+        -->
+        <component      name="referral_type_id"                         index="2.0"     length="5"/>
+        <component      name="referral_type_description"                index="2.1"     length="15"/>
+        <!--
+        <field          name="originating_referral_id"                  index="5.0"     length="15"/>
+        -->
+        <component      name="originating_referral_id"                  index="5.0"     length="15"/>
+        <field          name="effective_date"                           index="6"       length="12" data_type="date"/>
+        <field          name="expiration_date"                          index="7"       length="12" data_type="date"/>
+        <field          name="process_date"                             index="8"       length="12" data_type="date"/>
+        <!--
+        <field          name="referral_reason"                          index="9"       length="21"/>
+        -->
+        <component      name="referral_reason_id"                       index="9.0"     length="21"/>
+    </segment>
+
+    <!-- ZAU: Procedure authorization information -->
+    <segment id="ZAU" comment="Procedure authorization information">
+        <component      name="prev_authorization_id"                    index="0.0"     length="15"/>
+        <component      name="payor_control_id"                         index="1.0"     length="15"/>
+        <component      name="authorization_status"                     index="2.0"     length="4"/>
+        <component      name="authorization_status_text"                index="2.1"     length="15"/>
+        <component      name="pre_authorization_id"                     index="3.0"     length="15"/>
+        <field          name="pre_authorization_date"                   index="4"       length="8"/>
+        <subcomponent   name="copay"                                    index="5.0.0"   length="10"/>
+        <subcomponent   name="copay_currency"                           index="5.0.1"   length="10"/>
+    </segment>
+
+    <!-- ZIN: Additional insurance information -->
+    <segment id="ZIN" comment="Additional insurance information">
+        <field          name="eligibility_indicator"                    index="0"       length="1"/>
+        <component      name="patient_vat_status"                       index="1.0"     length="4"/>
+        <component      name="patient_vat_status_text"                  index="1.1"     length="7"/>
+    </segment>
+
+</hl7segdef>
