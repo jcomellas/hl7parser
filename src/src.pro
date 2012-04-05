@@ -11,7 +11,7 @@ DEFINES                        += INSIDE_HL7PARSER
 INCLUDEPATH                    += ../include
 DEPENDPATH                     += ../src ../include
 DESTDIR                         = ../lib
-VERSION                         = 2.1.0
+VERSION                         = 2.2.0
 
 # Options for the dynamic library (DLL).
 dll:DEFINES                    += HL7PARSER_DLL
@@ -24,9 +24,11 @@ win32:DEFINES                  += -D_DLL
 unix {
     target.path                += /usr/local/lib
     INSTALLS                   += target
-    headers.path               = /usr/local/include/hl7parser
-    headers.files              = ../include/hl7parser/*.h
+    headers.path                = /usr/local/include/hl7parser
+    headers.files               = ../include/hl7parser/*.h
     INSTALLS                   += headers
+    # Avoid stripping debug symbols from release builds
+    QMAKE_STRIP                 = echo
 }
 
 # Options for the debug version.

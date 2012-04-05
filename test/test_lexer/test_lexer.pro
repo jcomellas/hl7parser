@@ -39,3 +39,6 @@ release {
 
 SOURCES                         = $$files(*.c)
 # HEADERS                         = $$files(*.h)
+
+# Avoid stripping debug symbols from release builds
+QMAKE_STRIP                     = echo
