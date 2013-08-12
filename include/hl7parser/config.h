@@ -42,5 +42,10 @@
 */
 #define HL7_ASSERT( p )     assert( p )
 
+#ifdef __GNUC__
+#define HL7_UNUSED __attribute__ ((__unused__))
+#else
+#define HL7_UNUSED
+#endif
 
 #endif /* HL7PARSER_CONFIG_H */
