@@ -12,6 +12,7 @@
 #include <hl7parser/seg_msa.h>
 #include <hl7parser/seg_msh.h>
 #include <hl7parser/settings.h>
+#include <hl7parser/sprint.h>
 #include <hl7parser/token.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,6 +56,7 @@ int main( void )
          append_err_error_segment( &output_message, "M001", "ERROR TECNICO" ) == 0 )
     {
         char output_str[2048];
+        char formatted_str[2048];
 
         /* Initialize the input buffer. */
         hl7_buffer_init( &output_buffer, output_str, sizeof ( output_str ) - 1 );
@@ -62,12 +64,13 @@ int main( void )
         /* Write the HL7 message into the response buffer. */
         rc = hl7_parser_write( &parser, &output_buffer, &output_message );
 
-        /* Add the NULL terminator. */
-        *( hl7_buffer_wr_ptr( &output_buffer ) ) = '\0';
+        hl7_sprint( formatted_str, sizeof ( formatted_str ),
+                    hl7_buffer_rd_ptr( &output_buffer ),
+                    hl7_buffer_length( &output_buffer ) );
 
         hl7_buffer_fini( &output_buffer );
 
-        puts( output_str );
+        puts( formatted_str );
 
         rc = 0;
     }
@@ -96,15 +99,15 @@ int append_msh_error_segment( HL7_Message *hl7_response )
          hl7_msh_init( &msh, hl7_response->settings ) == 0 )
     {
         /* Sender: server */
-        hl7_msh_set_sending_application_id_str( &msh, "Novamens-HL7" );
-        hl7_msh_set_sending_facility_id_str( &msh, "SPM" );
-        hl7_msh_set_sending_facility_universal_id_str( &msh, "601818" );
+        hl7_msh_set_sending_application_id_str( &msh, "SERV" );
+        hl7_msh_set_sending_facility_id_str( &msh, "HMO" );
+        hl7_msh_set_sending_facility_universal_id_str( &msh, "223344" );
         hl7_msh_set_sending_facility_universal_id_type_str( &msh, "IIN" );
         /* Receiver: client */
         hl7_msh_set_receiving_application_id_str( &msh, "TIPO0100M" );
         hl7_msh_set_receiving_facility_id_str( &msh, "TIPO00000001" );
-        hl7_msh_set_receiving_facility_universal_id_str( &msh, "30707127216" );
-        hl7_msh_set_receiving_facility_universal_id_type_str( &msh, "NOVAMENS" );
+        hl7_msh_set_receiving_facility_universal_id_str( &msh, "99999999999" );
+        hl7_msh_set_receiving_facility_universal_id_type_str( &msh, "CARRIER" );
         /* Message time */
         hl7_msh_set_message_date_time( &msh, time( 0 ) );
         /* Message type */
@@ -175,4 +178,3 @@ static char *get_message_control_id( void )
 
     return ( message_control_id );
 }
-

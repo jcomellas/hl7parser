@@ -40,13 +40,16 @@ static char     *attr_name( char *text, const HL7_Token_Attribute attr );
 int main( void )
 {
     static char message[] =
-        "MSH|^~\\&|SERV|601818^^II|POSA|TECNET^ME0186^IP|20030304183039||RPA^I09|5538098|P|2.3|||NE|NE\r"
-        "MSA|AA|ME018620030304182723||||B003^\r"
-        "AUT||601818^^II||20030304||5538098||0|0\r"
-        "PRD|9||||||20043153146^CU^\r"
-        "PID|||0     1000109787027=9 2004009  00||9^\r"
-        "DG1|1||Z71.8^^ICD10\r"
-        "NTE|1|| DIAGNOSTICO INGRESADO\r";
+        "MSH|^~\\&|SERV|223344^^II|POSM|CARRIER^CL9999^IP|20030127202538||RPA^I08|5307938|P|2.3|||NE|NE\r"
+        "MSA|AA|CL999920030127203647||||B006^\r"
+        "AUT|TESTPLAN|223344^^II||||5307938||0|0\r"
+        "PRD|RT|NOMBRE PRESTADOR SALUD|||||99999999999^CU^GUARDIA\r"
+        "PRD|RP||||||9^^N\r"
+        "PID|||2233441000013527101=0000000000002|1|NOMBRE PACIENTE^\r"
+        "PR1|1||420101^CONSULTA EN CONSULTORIO^NA^||20030127203642|Z\r"
+        "AUT|PLANSALUD|||20030127|20030127|5307938|0.00^$|1|1\r"
+        "NTE|1||SIN CARGO\r"
+        "NTE|2||IVA: SI\r";
 
     int                 rc              = 0;
     HL7_Settings        settings;
