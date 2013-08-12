@@ -7,7 +7,7 @@
 * Data types and functions used to handle an HL7 element.
 *
 * \internal
-* Copyright (c) 2003-2011 \b Erlar (http://erlar.com)
+* Copyright (c) 2003-2013 Juan Jose Comellas <juanjo@comellas.org>
 */
 
 /* ------------------------------------------------------------------------

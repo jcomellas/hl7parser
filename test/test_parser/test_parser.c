@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------------
    $Id$
 
-   Copyright (c) 2003 Novamens (http://www.novamens.com)
+   Copyright (c) 2003-2013 Juan Jose Comellas <juanjo@comellas.org>
 
    Program to test the HL7 parser.
    ------------------------------------------------------------------------ */

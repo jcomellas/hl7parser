@@ -7,7 +7,7 @@
 * Definition of macros used to export symbols from DLLs.
 *
 * \internal
-* Copyright (c) 2003-2011 \b Erlar (http://erlar.com)
+* Copyright (c) 2003-2013 Juan Jose Comellas <juanjo@comellas.org>
 */
 
 BEGIN_C_DECL()

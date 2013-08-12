@@ -7,7 +7,7 @@
 * Query parameter definition -- procedure totals query segment (QPD_Q15) accessors for the HL7 parser.
 *
 * \internal
-* Copyright (c) 2011 \b Erlar (http://erlar.com)
+* Copyright (c) 2011 Juan Jose Comellas <juanjo@comellas.org>
 *
 * \warning DO NOT MODIFY THIS FILE.
 *

@@ -146,7 +146,7 @@ class AccessorDefHandler ( handler.ContentHandler ):
                         "* " + self.comment_ + " segment (" + string.upper( self.segmentId_ ) + ") accessors for the HL7 parser.\n" \
                         "*\n" \
                         "* \\internal\n" \
-                        "* Copyright (c) " + str( today.tm_year ) + " \\b Erlar (http://erlar.com)\n" \
+                        "* Copyright (c) " + str( today.tm_year ) + " Juan Jose Comellas <juanjo@comellas.org>\n" \
                         "*\n" \
                         "* \\warning DO NOT MODIFY THIS FILE.\n" \
                         "*\n"

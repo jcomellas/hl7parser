@@ -5,7 +5,7 @@
 * HL7_Node's that have been already parsed.
 *
 * \internal
-* Copyright (c) 2003-2011 \b Erlar (http://erlar.com)
+* Copyright (c) 2003-2013 Juan Jose Comellas <juanjo@comellas.org>
 */
 
 /* ------------------------------------------------------------------------
