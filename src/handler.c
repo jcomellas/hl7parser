@@ -23,37 +23,39 @@ BEGIN_C_DECL()
 
 
 /* ------------------------------------------------------------------------ */
-int hl7_handler_start_document( HL7_Parser *parser )
+int hl7_handler_start_document( HL7_UNUSED HL7_Parser *parser )
 {
     return 0;
 }
 
 /* ------------------------------------------------------------------------ */
-int hl7_handler_end_document( HL7_Parser *parser )
+int hl7_handler_end_document( HL7_UNUSED HL7_Parser *parser )
 {
     return 0;
 }
 
 /* ------------------------------------------------------------------------ */
-int hl7_handler_start_element( HL7_Parser *parser, HL7_Element_Type element_type )
+int hl7_handler_start_element( HL7_UNUSED HL7_Parser *parser, HL7_UNUSED HL7_Element_Type element_type )
 {
     return ( 0 );
 }
 
 /* ------------------------------------------------------------------------ */
-int hl7_handler_end_element( HL7_Parser *parser, HL7_Element_Type element_type )
+int hl7_handler_end_element( HL7_UNUSED HL7_Parser *parser, HL7_UNUSED HL7_Element_Type element_type )
 {
     return ( 0 );
 }
 
 /* ------------------------------------------------------------------------ */
-int hl7_handler_characters( HL7_Parser *parser, HL7_Element_Type element_type, HL7_Element *element )
+int hl7_handler_characters( HL7_UNUSED HL7_Parser *parser, HL7_UNUSED HL7_Element_Type element_type,
+                            HL7_UNUSED HL7_Element *element )
 {
     return ( 0 );
 }
 
 /* ------------------------------------------------------------------------ */
-int hl7_handler_parse_error( HL7_Parser *parser, int error_code, char *error_msg )
+int hl7_handler_parse_error( HL7_UNUSED HL7_Parser *parser, HL7_UNUSED int error_code,
+                             HL7_UNUSED char *error_msg )
 {
     return ( 0 );
 }
