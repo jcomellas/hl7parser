@@ -104,11 +104,11 @@ HL7_EXPORT bool hl7_is_parent_type( const HL7_Element_Type parent_type, const HL
 HL7_EXPORT bool hl7_is_ancestor_type( const HL7_Element_Type ancestor_type, const HL7_Element_Type descendant_type );
 
 HL7_EXPORT void hl7_child_separators( HL7_Settings *settings, const HL7_Element_Type element_type,
-                                      const char *separator_begin, const char *separator_end );
+                                      const char **separator_begin, const char **separator_end );
 
 HL7_EXPORT char hl7_terminator( HL7_Settings *settings, const HL7_Element_Type element_type );
 HL7_EXPORT void hl7_parent_terminators( HL7_Settings *settings, HL7_Element_Type const element_type,
-                                        const char *separator_begin, const char *separator_end );
+                                        const char **separator_begin, const char **separator_end );
 
 
 END_C_DECL()

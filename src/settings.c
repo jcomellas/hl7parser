@@ -149,19 +149,19 @@ HL7_EXPORT bool hl7_is_ancestor_type( const HL7_Element_Type ancestor_type, cons
 
 /* ------------------------------------------------------------------------ */
 HL7_EXPORT void hl7_child_separators( HL7_Settings *settings, const HL7_Element_Type element_type,
-                                      const char *separator_begin, const char *separator_end )
+                                      const char **separator_begin, const char **separator_end )
 {
     HL7_ASSERT( settings != 0 );
 
     if ( element_type > HL7_SEPARATOR_SUBCOMPONENT )
     {
-        separator_begin = settings->separator;
-        separator_end   = settings->separator + element_type - 1;
+        *separator_begin = settings->separator;
+        *separator_end   = settings->separator + element_type - 1;
     }
     else
     {
-        separator_begin = 0;
-        separator_end   = 0;
+        *separator_begin = 0;
+        *separator_end   = 0;
     }
 }
 
@@ -175,12 +175,12 @@ HL7_EXPORT char hl7_terminator( HL7_Settings *settings, const HL7_Element_Type e
 
 /* ------------------------------------------------------------------------ */
 HL7_EXPORT void hl7_parent_terminators( HL7_Settings *settings, const HL7_Element_Type element_type,
-                                        const char *separator_begin, const char *separator_end )
+                                        const char **separator_begin, const char **separator_end )
 {
     HL7_ASSERT( settings != 0 );
 
-    separator_begin = settings->separator + element_type;
-    separator_end   = settings->separator + HL7_ELEMENT_TYPE_COUNT;
+    *separator_begin = settings->separator + element_type;
+    *separator_end   = settings->separator + HL7_ELEMENT_TYPE_COUNT;
 }
 
 
